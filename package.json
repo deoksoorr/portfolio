@@ -11,7 +11,10 @@
     "@types/styled-components": "^5.1.25",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "styled-components": "^5.3.5"
+    "react-router-dom": "^6.3.0",
+    "styled-components": "^5.3.5",
+    "styled-reset": "^4.4.1",
+    "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
