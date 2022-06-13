@@ -33,8 +33,9 @@ const Header = () => {
 const Nav = styled.header`
   margin: 0 auto;
   font-size: 13px;
-  width: 96vw;
-  padding: 20px 0;
+  width: 100%;
+  padding: 20px 2vw;
+  background: #fff;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;

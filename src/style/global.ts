@@ -14,9 +14,11 @@ const GlobalStyles = createGlobalStyle`
     body{
         font-family: 'Saira', sans-serif;
         font-weight: 300;
+        color:#000;
     }
     a{
         text-decoration: none;
+        color:#000;
     }
 `;
 

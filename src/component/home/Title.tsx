@@ -42,6 +42,11 @@ const Title = () => {
           <span>STRATEGY</span>
         </div>
       </div>
+      <div className="subMask">
+        <span className="sub">
+          react.js / java / mySQL / typescript / sass / design
+        </span>
+      </div>
     </Box>
   );
 };
@@ -51,18 +56,22 @@ const Box = styled.div`
   padding-top: 8vw;
   margin-bottom: 4vw;
   width: 96vw;
-
   font-size: 6vw;
   line-height: 0.8;
   font-weight: 400;
-  .lineMask {
+  > .lineMask {
     overflow: hidden;
+    line-height: 5.2vw;
     > div {
       display: inline-block;
     }
   }
-  .sub {
-    font-size: 13px;
+  > .subMask {
+    line-height: 0;
+    .sub {
+      font-size: 13px;
+      line-height: 13px;
+    }
   }
 `;
 
