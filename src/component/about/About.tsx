@@ -1,22 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { useWindowScroll } from 'react-use';
+import { useIntersection, useWindowScroll } from 'react-use';
 
 const About = () => {
   const { x, y } = useWindowScroll();
   const videoRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef(null);
+  const [width, setWidth] = useState(0);
   useEffect(() => {
-    console.log('---');
-    console.log(y);
-    //console.log(videoRef.current?.offsetTop);
-    //console.log(videoRef.current?.offsetHeight);
-  }, [y]);
-
-  const yScrollEvent = () => {
-    //const scroll = aboutRef.current.getBoundingClientRect();
-    console.log(scroll);
-  };
+    if (videoRef.current) {
+      let cWidth = (y / videoRef.current.offsetTop) * 100;
+      if (cWidth > 100) {
+        cWidth = 100;
+      }
+      setWidth(cWidth);
+    }
+  }, [y, videoRef]);
   return (
     <>
       <Box ref={aboutRef}>
@@ -47,7 +46,7 @@ const About = () => {
           </li>
         </ul>
       </Box>
-      <VideoBox ref={videoRef}>
+      <VideoBox ref={videoRef} style={{ width: `${width}vw` }}>
         <video autoPlay loop muted>
           <source
             src={`videos/20d42b34-60b4-4fdf-a1b3-0cf53a3ba4f1.mp4`}
