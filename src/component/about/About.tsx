@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { useScroll } from 'react-use';
 
 const About = () => {
+  /*
   const scrollRef = React.useRef(null);
   const { x, y } = useScroll(scrollRef);
   console.log(y);
-
+*/
   return (
     <>
       <Box>
@@ -26,13 +27,13 @@ const About = () => {
               development, we build digital experiences that transform the way
               people connect and interact with brands.
             </span>
-            <div>
-              <button type="button" className="btn_about">
-                <p>ABOUT US</p>
-              </button>
-              <button type="button" className="btn_get">
-                <p>GET TO NOW US</p>
-              </button>
+            <div className="btn-outer">
+              <div className="btn-mask btn-bottom">
+                <div className="btn-text">Get to know us</div>
+              </div>
+              <div className="btn-mask btn-top">
+                <div className="btn-text">ABOUT US</div>
+              </div>
             </div>
           </li>
         </ul>
@@ -78,29 +79,40 @@ const Box = styled.div`
         color: #2a2a2a;
         margin-bottom: 2vw;
       }
-      > div {
+      > .btn-outer {
+        cursor: pointer;
         position: relative;
-        font-size: 12px;
-        line-height: 14px;
-        > button {
+        .btn-mask.btn-bottom {
+          align-items: flex-start;
+          background-color: #ccc4b9;
+          justify-content: flex-start;
+          padding-left: 24px;
+          display: flex;
+          clip-path: inset(0px 54.2186px 0px 0px round 999px);
+        }
+        .btn-mask.btn-top {
+          border-radius: 0;
+          background-color: #2a2a2a;
+          color: #f0f0f0;
+          clip-path: inset(0px round 999px);
+        }
+        .btn-mask {
           position: absolute;
+          display: flex;
           padding: 4px 12px;
-          clip-path: inset(1px round 9999px);
-          transition-delay: 1.5s;
-          > p {
-            font-size: 11px;
+          justify-content: flex-start;
+          align-items: flex-start;
+          .btn-text {
+            font-size: 12px;
             line-height: 14px;
-            font-weight: 300;
           }
         }
-        > .btn_about {
-          z-index: 10;
-          background: #2a2a2a;
-          color: #fff;
-        }
+        :hover {
+          .btn-mask.btn-bottom {
+          }
 
-        > button.btn_get {
-          display: none;
+          .btn-mask.btn-top {
+          }
         }
       }
     }

@@ -1,105 +1,44 @@
 import styled from 'styled-components';
+import { useAboutStore } from '../../store/about';
 
 const Gallery = () => {
+  const { aboutList } = useAboutStore((state) => state);
   return (
     <Box>
       <ul>
-        <li>
-          <a href="" rel="noopener noreferrer">
-            <div>
-              <div>
-                <img src={`/images/home/01.jpeg`} alt="" />
-              </div>
-              <span />
-              <ul>
-                <li>
-                  <span>RESEARCH</span>
-                  <em> / </em>
-                  <span>STRATEGY</span>
-                  <em> / </em>
-                  <span>DESIGN</span>
-                </li>
-                <li>
-                  <span>2021</span>
-                </li>
-              </ul>
-              <p>LEMKUS</p>
-            </div>
-          </a>
-          <span>00-1</span>
-        </li>
-        <li>
-          <a href="" rel="noopener noreferrer">
-            <div>
-              <div>
-                <img src={`/images/home/02.jpeg`} alt="" />
-              </div>
-              <span />
-              <ul>
-                <li>
-                  <span>RESEARCH</span>
-                  <em> / </em>
-                  <span>STRATEGY</span>
-                  <em> / </em>
-                  <span>DESIGN</span>
-                </li>
-                <li>
-                  <span>2021</span>
-                </li>
-              </ul>
-              <p>LEMKUS</p>
-            </div>
-          </a>
-          <span>00-2</span>
-        </li>
-        <li>
-          <a href="" rel="noopener noreferrer">
-            <div>
-              <div>
-                <img src={`/images/home/03.jpeg`} alt="" />
-              </div>
-              <span />
-              <ul>
-                <li>
-                  <span>RESEARCH</span>
-                  <em> / </em>
-                  <span>STRATEGY</span>
-                  <em> / </em>
-                  <span>DESIGN</span>
-                </li>
-                <li>
-                  <span>2021</span>
-                </li>
-              </ul>
-              <p>LEMKUS</p>
-            </div>
-          </a>
-          <span>00-3</span>
-        </li>
-        <li>
-          <a href="" rel="noopener noreferrer">
-            <div>
-              <div>
-                <img src={`/images/home/04.jpeg`} alt="" />
-              </div>
-              <span />
-              <ul>
-                <li>
-                  <span>RESEARCH</span>
-                  <em> / </em>
-                  <span>STRATEGY</span>
-                  <em> / </em>
-                  <span>DESIGN</span>
-                </li>
-                <li>
-                  <span>2021</span>
-                </li>
-              </ul>
-              <p>LEMKUS</p>
-            </div>
-          </a>
-          <span>00-4</span>
-        </li>
+        {aboutList.map((item, i) => {
+          /*
+          var obj = item.stack.length;
+          console.log(obj);
+          let stack = item.stack;
+          if (item.stack.length >= 2) {
+            stack[2] = stack[1];
+            stack[1] = '/'
+          }
+          */
+          return (
+            <li key={i}>
+              <a href="" rel="noopener noreferrer">
+                <div>
+                  <div>
+                    <img src={`/images/home/${item.id}.jpeg`} alt="" />
+                  </div>
+                  <span />
+                  <ul>
+                    <li>
+                      <span>{item.stack}</span>
+                    </li>
+                    <li>
+                      <span>{item.year}</span>
+                    </li>
+                  </ul>
+                  <p>{item.name}</p>
+                </div>
+              </a>
+              <span>{item.num}</span>
+            </li>
+          );
+        })}
       </ul>
     </Box>
   );
