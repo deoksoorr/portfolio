@@ -5,15 +5,21 @@ import { useWindowScroll } from 'react-use';
 const About = () => {
   const { x, y } = useWindowScroll();
   const videoRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef(null);
   useEffect(() => {
     console.log('---');
     console.log(y);
-    console.log(videoRef.current?.offsetTop);
-    console.log(videoRef.current?.offsetHeight);
+    //console.log(videoRef.current?.offsetTop);
+    //console.log(videoRef.current?.offsetHeight);
   }, [y]);
+
+  const yScrollEvent = () => {
+    //const scroll = aboutRef.current.getBoundingClientRect();
+    console.log(scroll);
+  };
   return (
     <>
-      <Box>
+      <Box ref={aboutRef}>
         <h1>ABOUT</h1>
         <ul>
           <li>
@@ -72,13 +78,13 @@ const Box = styled.div`
       width: 50%;
       position: relative;
       > p {
-        font-size: 1.3vw;
-        line-height: 1;
+        font-size: 1.1vw;
+        line-height: 1.2;
       }
       > span {
         display: block;
-        font-size: 1.1vw;
-        line-height: 1.2;
+        font-size: 0.8vw;
+        line-height: 1.4;
         color: #2a2a2a;
         margin-bottom: 2vw;
       }

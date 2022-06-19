@@ -21,7 +21,10 @@ const Gallery = () => {
               <a href="" rel="noopener noreferrer">
                 <div>
                   <div>
-                    <img src={`/images/home/${item.id}.jpeg`} alt="" />
+                    <img
+                      src={`/images/home/${item.id}.jpeg`}
+                      alt={`$(item.name}`}
+                    />
                   </div>
                   <span />
                   <ul>
