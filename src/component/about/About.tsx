@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useWindowScroll } from 'react-use';
 
 const About = () => {
   const { x, y } = useWindowScroll();
-
+  const videoRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    console.log('---');
     console.log(y);
-  });
+    console.log(videoRef.current?.offsetTop);
+    console.log(videoRef.current?.offsetHeight);
+  }, [y]);
   return (
     <>
       <Box>
@@ -38,7 +41,7 @@ const About = () => {
           </li>
         </ul>
       </Box>
-      <VideoBox>
+      <VideoBox ref={videoRef}>
         <video autoPlay loop muted>
           <source
             src={`videos/20d42b34-60b4-4fdf-a1b3-0cf53a3ba4f1.mp4`}
