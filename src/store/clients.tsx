@@ -1,16 +1,20 @@
 import create from 'zustand';
 
-interface ClientsType {
-  clientsList: {
-    id: string;
-    name: string;
-    description: string;
-    btntop: string;
-    btnbot: string;
-  }[];
+type ClientType = {
+  id: string;
+  name: string;
+  description: string;
+  btntop: string;
+  btnbot: string;
+};
+
+interface useClientsStoreType {
+  clientsList: ClientType[];
+  getClient: (name: string) => ClientType | undefined;
 }
 
-const useClientsStore = create<ClientsType>((set) => ({
+// const useClientsStore = create<useClientsStoreType>(() => ({
+const useClientsStore = create<any>(() => ({
   clientsList: [
     {
       id: '01',
@@ -45,6 +49,18 @@ const useClientsStore = create<ClientsType>((set) => ({
       btnbot: 'EXPLORE AFRISAM',
     },
   ],
+
+  getClient: (name: string) => {
+    const client:
+      | ClientType
+      | undefined = useClientsStore
+      .getState()
+      .clientsList.find((c: ClientType) => {
+        return c.name === name;
+      });
+
+    return client;
+  },
 }));
 
 export { useClientsStore };

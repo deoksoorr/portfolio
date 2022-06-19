@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { useIntersection, useWindowScroll } from 'react-use';
+import { useIntersection, useWindowScroll, useWindowSize } from 'react-use';
 
 const About = () => {
   const { x, y } = useWindowScroll();
