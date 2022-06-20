@@ -4,10 +4,14 @@ import { useClientsStore } from '../../store/clients';
 import { ClientType } from '../../types/clientsType';
 
 const Detail = () => {
+  // url 에 포함되있는 name 파라미터를 가져온다.
   const { name } = useParams();
+  // useClientsStore getCliet 함수 가져온다.
   const { getClient } = useClientsStore((state) => state);
+  // state에 데이터 저장.
   const [data, setData] = useState<ClientType | null>(null);
   useEffect(() => {
+    // name 이 있으면 데이터 패치.
     if (name) {
       const data = getClient(name);
       if (data) {
@@ -15,6 +19,8 @@ const Detail = () => {
       }
     }
   }, []);
+
+  // 데이터 없으면 리턴 false
   if (!data) return false;
   return (
     <div>
