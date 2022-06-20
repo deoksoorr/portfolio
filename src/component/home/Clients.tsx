@@ -87,10 +87,11 @@ const Box = styled.div`
             }
           }
           .btn-mask.btn-top {
-            width: 100px;
             background-color: #2a2a2a;
             color: #f0f0f0;
             border-radius: 999px;
+            overflow: hidden;
+            height: 10px;
           }
           .btn-mask.btn-bottom {
             transition: 0.5s;
@@ -100,18 +101,25 @@ const Box = styled.div`
             padding-left: 24px;
             display: flex;
             border-radius: 999px;
+            height: 10px;
           }
           :hover {
+            transition: 0.5s;
             .btn-mask.btn-top {
-              width: 20px;
+              height: 10px;
               overflow: hidden;
               transform: (5px 0);
+              transform: translateX(6px);
               .btn-text {
                 visibility: hidden;
                 transform: translateY(-50%);
               }
             }
             .btn-mask.btn-bottom {
+              padding: 0;
+              height: 10px;
+              .btn-text {
+              }
             }
           }
         }
