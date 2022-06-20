@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Footer = () => {
   return (
     <Nav>
-      <h1>DSR-STDUIO</h1>
+      <h1>DSR-STDUIO®</h1>
       <ul>
         <li>
           <button type="button">

@@ -44,7 +44,7 @@ const Title = () => {
       </div>
       <div className="subMask">
         <span className="sub">
-          react.js / java / mySQL / typescript / sass / design
+          &nbsp;&nbsp;BASED IN LONDON + CAPE TOWN WORKING WORLDWIDE
         </span>
       </div>
     </Box>

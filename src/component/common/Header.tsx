@@ -3,21 +3,21 @@ import styled from 'styled-components';
 const Header = () => {
   return (
     <Nav>
-      <h1>DSR-STDUIO</h1>
+      <h1>DSR-STDUIO®</h1>
       <ul>
         <li>
           <button type="button">
+            <span>CASE STUDIES</span>
+          </button>
+        </li>
+        <li>
+          <button type="button">
+            <span>WORK</span>
+          </button>
+        </li>
+        <li>
+          <button type="button">
             <span>ABOUT</span>
-          </button>
-        </li>
-        <li>
-          <button type="button">
-            <span>DESIGN</span>
-          </button>
-        </li>
-        <li>
-          <button type="button">
-            <span>DEVELOPMENT</span>
           </button>
         </li>
         <li>
@@ -31,6 +31,7 @@ const Header = () => {
 };
 
 const Nav = styled.header`
+  z-index: 999;
   margin: 0 auto;
   font-size: 13px;
   width: 100%;
