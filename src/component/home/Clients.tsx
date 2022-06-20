@@ -79,8 +79,6 @@ const Box = styled.div`
           .btn-mask {
             position: absolute;
             display: flex;
-            height: 20px;
-            line-height: 20px;
             justify-content: flex-start;
             align-items: flex-start;
             transition: 0.5s;
@@ -89,6 +87,7 @@ const Box = styled.div`
             }
           }
           .btn-mask.btn-top {
+            width: 100px;
             background-color: #2a2a2a;
             color: #f0f0f0;
             border-radius: 999px;
@@ -104,13 +103,12 @@ const Box = styled.div`
           }
           :hover {
             .btn-mask.btn-top {
-              transform: translate(4px, 4px);
-            }
-            .btn-mask.btn-top {
-              height: 6px;
+              width: 20px;
+              overflow: hidden;
+              transform: (5px 0);
               .btn-text {
                 visibility: hidden;
-                display: none;
+                transform: translateY(-50%);
               }
             }
             .btn-mask.btn-bottom {
