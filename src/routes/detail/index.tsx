@@ -1,28 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useClientsStore } from '../../store/clients';
+import { ClientType } from '../../types/clientsType';
 
 const Detail = () => {
   const { name } = useParams();
-  const { getClient } = useClientsStore((state: any) => state);
-  const [data, setData] = useState(null);
+  const { getClient } = useClientsStore((state) => state);
+  const [data, setData] = useState<ClientType | null>(null);
   useEffect(() => {
-    const data = getClient(name);
-    if (data) {
-      setData(data);
+    if (name) {
+      const data = getClient(name);
+      if (data) {
+        setData(data);
+      }
     }
   }, []);
+  if (!data) return false;
   return (
     <div>
       <br />
       <br />
       <br />
       <br />
-      {typeof data === 'object' && data && data.name}
+      {data.name}
       <br />
-      {data?.id}
+      {data.id}
       <br />
-      {data?.description}
+      {data.description}
     </div>
   );
 };

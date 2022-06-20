@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useClientsStore } from '../../store/clients';
+import { ClientType } from '../../types/clientsType';
 
 const Clients = () => {
   const { clientsList } = useClientsStore((state) => state);
@@ -8,7 +9,7 @@ const Clients = () => {
     <Box>
       <h1>FEATURED CLIENTS</h1>
       <ul>
-        {clientsList.map((item, i) => {
+        {clientsList.map((item: ClientType, i: number) => {
           return (
             <li key={i}>
               <div className="imgBox">
