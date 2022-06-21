@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Worked = () => {
   return (
     <Box>
       <h1>BRANDS WE'VE WORKED WITH</h1>
-      <div>
-        <div>
-          <input type="radio">
+      <div className="work_list">
+        <div className="work_title">
+          <ul>
+            <li>WOOLWORTHS</li>
+            <li>RESEARCH - STRATEGY</li>
+            <li className="btn">MORE+</li>
+          </ul>
+          <div className="work_detail">
             <ul>
-              <li>WOOLWORTHS</li>
-              <li>RESEARCH - STRATEGY</li>
-              <li>MORE+</li>
+              <li></li>
+              <li>
+                <p>
+                  Working closely with Woolworths within a SPRINT framework, we
+                  undertook extensive primary and secondary user research as
+                  well as user experience testing with the client’s desired
+                  target audience. The result was a tested and validated savings
+                  and budgeting proposition.
+                </p>
+              </li>
             </ul>
-          </input>
+          </div>
         </div>
       </div>
     </Box>
