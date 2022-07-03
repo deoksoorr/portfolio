@@ -45,6 +45,7 @@ const useClientsStore = create<useClientsStoreType>(() => ({
 
   // clientsList 에서 특정 name에 해당하는 객체만 가져오는 함수
   getClient: (name: string) => {
+    //name 조회 후
     const client = useClientsStore
       .getState()
       .clientsList.find((c: ClientType) => {

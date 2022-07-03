@@ -26,6 +26,20 @@ const Worked = () => {
               </li>
             </ul>
           </div>
+          <div className="acc-line-mask">
+            <div
+              className="acc-list-line"
+              style={{
+                transform: 'translate3d(0%, 0px, 0px)',
+                backgroundColor: 'rgb(205, 205, 205)',
+              }}
+            >
+              <div
+                className="dark-list-line"
+                style={{ transform: 'translate3d(100%, 0px, 0px)' }}
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
     </Box>
@@ -42,6 +56,68 @@ const Box = styled.div`
     font-size: 2.78vw;
     line-height: 0.8;
     font-weight: 400;
+  }
+  .work_list {
+    .work_title {
+      > ul {
+        padding-top: 1.4vw;
+        padding-bottom: 1.4vw;
+        font-size: 0.8vw;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        position: relative;
+        cursor: pointer;
+        > li:nth-child(1),
+        > li:nth-child(2) {
+          width: 50%;
+        }
+        > li:nth-child(3) {
+          position: absolute;
+          right: 0;
+        }
+      }
+      .work_detail {
+        margin-bottom: 1.4vw;
+        > ul {
+          display: flex;
+          justify-content: space-between;
+          > li {
+            width: 50%;
+            > p {
+              width: 80%;
+              font-size: 0.7vw;
+              line-height: 1.2;
+              color: #2a2a2a;
+            }
+          }
+        }
+      }
+      .acc-line-mask {
+        overflow: hidden;
+        width: 100%;
+        height: 1px;
+        .acc-list-line {
+          overflow: hidden;
+          width: 100%;
+          height: 1px;
+          .dark-list-line {
+            width: 100%;
+            height: 1px;
+            background-color: #2a2a2a;
+          }
+        }
+      }
+      &:hover {
+        .acc-line-mask {
+          .acc-list-line {
+            .dark-list-line {
+              transform: translate3d(100%, 0px, 0px);
+            }
+          }
+        }
+      }
+    }
   }
 `;
 export default Worked;

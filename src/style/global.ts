@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
     body{
         font-family: 'Saira', sans-serif;
         font-weight: 300;
-        color:#000;
+        color:#000;overflow-x:hidden
     }
     a{
         text-decoration: none;
