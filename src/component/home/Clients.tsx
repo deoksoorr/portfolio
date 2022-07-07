@@ -94,33 +94,37 @@ const Box = styled.div`
             color: #f0f0f0;
             border-radius: 999px;
             overflow: hidden;
-            width: auto;
+            width: 130px;
+            padding: 5px 0;
+            padding-left: 10px;
           }
           .btn-mask.btn-bottom {
             transition: 0.5s;
             align-items: flex-start;
             background-color: #ccc4b9;
             justify-content: flex-start;
-            padding-left: 24px;
+            padding: 5px 10px;
+            padding-left: 5px;
             display: flex;
             border-radius: 999px;
+            overflow: hidden;
           }
           :hover {
             transition: 0.5s;
             .btn-mask.btn-top {
-              width: 10px;
-              height: 10px;
+              width: 13px;
+              padding: 1px 0;
               overflow: hidden;
-              transform: (5px 0);
-              transform: translateX(6px);
+              transform: translate(8px, 40%);
               .btn-text {
                 visibility: hidden;
                 transform: translateY(-50%);
               }
             }
             .btn-mask.btn-bottom {
-              padding: 0;
               height: 10px;
+              padding: 5px 30px;
+              padding-left: 25px;
               .btn-text {
               }
             }
