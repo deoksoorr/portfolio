@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useClientsStore } from '../../store/clients';
 import { ClientType } from '../../types/clientsType';
 
@@ -21,11 +21,11 @@ const Clients = () => {
 
               <a href="" rel="noopener noreferrer">
                 <div className="btn-outer">
-                  <div className="btn-mask btn-bottom">
-                    <div className="btn-text">{item.btnbot}</div>
-                  </div>
                   <div className="btn-mask btn-top">
                     <div className="btn-text">{item.btntop}</div>
+                  </div>
+                  <div className="btn-mask btn-bottom">
+                    <div className="btn-text">{item.btnbot}</div>
                   </div>
                 </div>
               </a>
@@ -78,21 +78,23 @@ const Box = styled.div`
           cursor: pointer;
           position: relative;
           .btn-mask {
+            transition: 0.35s;
             position: absolute;
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
-            transition: 0.5s;
             .btn-text {
               font-size: 12px;
             }
+            height: 10px;
           }
           .btn-mask.btn-top {
+            z-index: 999;
             background-color: #2a2a2a;
             color: #f0f0f0;
             border-radius: 999px;
             overflow: hidden;
-            height: 10px;
+            width: auto;
           }
           .btn-mask.btn-bottom {
             transition: 0.5s;
@@ -102,11 +104,11 @@ const Box = styled.div`
             padding-left: 24px;
             display: flex;
             border-radius: 999px;
-            height: 10px;
           }
           :hover {
             transition: 0.5s;
             .btn-mask.btn-top {
+              width: 10px;
               height: 10px;
               overflow: hidden;
               transform: (5px 0);
