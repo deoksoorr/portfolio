@@ -108,6 +108,9 @@ const Box = styled.div`
             display: flex;
             border-radius: 999px;
             overflow: hidden;
+            .btn-text {
+              display: none;
+            }
           }
           :hover {
             transition: 0.5s;
@@ -126,6 +129,7 @@ const Box = styled.div`
               padding: 5px 30px;
               padding-left: 25px;
               .btn-text {
+                display: block;
               }
             }
           }
