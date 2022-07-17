@@ -36,7 +36,7 @@ const About = () => {
               development, we build digital experiences that transform the way
               people connect and interact with brands.
             </span>
-            <Button btntop="Get to know us" btnbot="ABOUT US" />
+            <Button link="" btntop="Get to know us" btnbot="ABOUT US" />
           </li>
         </ul>
       </Box>

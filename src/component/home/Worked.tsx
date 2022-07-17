@@ -48,7 +48,7 @@ const Worked = () => {
       >
         {imgNum.map((o, i) => {
           return (
-            <SwiperSlide style={{ width: 'auto' }}>
+            <SwiperSlide style={{ width: 'auto' }} key={i}>
               <SwiperContent
                 src={`/images/artbuddy/artbuddy_0${i + 1}.png`}
                 alt={`${i}`}

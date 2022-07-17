@@ -10,7 +10,7 @@ interface buttonStyle {
 
 const Button = ({ link, btntop, btnbot }: buttonStyle) => {
   return (
-    <StyleButton to={link} rel="noopener noreferrer">
+    <StyleButton to={`${link}`} rel="noopener noreferrer">
       <div className="btn-outer">
         <div className="btn-mask btn-top">
           <div className="btn-text">{btntop}</div>
