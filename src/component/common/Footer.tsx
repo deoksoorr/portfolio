@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from './Button';
 
 const Footer = () => {
   return (
@@ -9,14 +10,8 @@ const Footer = () => {
             <h3>WE WOULD LOVE TO HEAR FROM YOU.</h3>
             <h3>LET’S WORK — TOGETHER</h3>
           </div>
-          <div className="btn-outer">
-            <div className="btn-mask btn-top">
-              <div className="btn-text">CONTACT US</div>
-            </div>
-            <div className="btn-mask btn-bottom">
-              <div className="btn-text">GET IN TOUCH</div>
-            </div>
-          </div>
+
+          <Button link="/contact" btntop="CONTACT US" btnbot="GET IN TOUCH" />
         </li>
         <li>
           <ul>
@@ -72,63 +67,10 @@ const Contact = styled.ul`
         font-size: 1.4vw;
       }
     }
-    > .btn-outer {
-      cursor: pointer;
-      position: relative;
-      .btn-mask {
-        transition: 0.35s;
-        position: absolute;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        .btn-text {
-          font-size: 12px;
-        }
-        height: 10px;
-      }
-      .btn-mask.btn-top {
-        z-index: 999;
-        background-color: #2a2a2a;
-        color: #f0f0f0;
-        border-radius: 999px;
-        overflow: hidden;
-        width: 85px;
-        padding: 5px 0;
-        padding-left: 10px;
-      }
-      .btn-mask.btn-bottom {
-        transition: 0.5s;
-        align-items: flex-start;
-        background-color: #ccc4b9;
-        justify-content: flex-start;
-        padding: 5px 10px;
-        padding-left: 5px;
-        display: flex;
-        border-radius: 999px;
-        overflow: hidden;
-        .btn-text {
-          display: none;
-        }
-      }
-      :hover {
-        transition: 0.5s;
+    a {
+      > .btn-outer {
         .btn-mask.btn-top {
-          width: 13px;
-          padding: 1px 0;
-          overflow: hidden;
-          transform: translate(8px, 40%);
-          .btn-text {
-            visibility: hidden;
-            transform: translateY(-50%);
-          }
-        }
-        .btn-mask.btn-bottom {
-          height: 10px;
-          padding: 5px 30px;
-          padding-left: 25px;
-          .btn-text {
-            display: block;
-          }
+          width: 85px;
         }
       }
     }

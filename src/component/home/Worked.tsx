@@ -1,93 +1,62 @@
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import useWorkedStore from '../../store/worked';
+import { WorkedType } from '../../types/workedType';
+import 'swiper/css';
 
 const Worked = () => {
+  const { workedList } = useWorkedStore((state) => state);
+
+  const imgNum = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <Box>
       <h1>BRANDS WE'VE WORKED WITH</h1>
 
+      {}
       <div className="work_list">
-        <div className="work_list_detail">
-          <div className="work_title">
-            <input type="radio" name="accordion" id="works1"></input>
-            <label htmlFor="works1">
-              <ul>
-                <li>WOOLWORTHS</li>
-                <li>RESEARCH - STRATEGY</li>
-                <li className="btn"></li>
-              </ul>
-            </label>
-            <div className="work_detail">
-              <ul>
-                <li></li>
-                <li>
-                  <p>
-                    Working closely with Woolworths within a SPRINT framework,
-                    we undertook extensive primary and secondary user research
-                    as well as user experience testing with the client’s desired
-                    target audience. The result was a tested and validated
-                    savings and budgeting proposition.
-                  </p>
-                </li>
-              </ul>
+        {workedList.map((item: WorkedType, i: number) => {
+          return (
+            <div className="work_list_detail" key={i}>
+              <div className="work_title">
+                <input type="radio" name="accordion" id={`works${i}`}></input>
+                <label htmlFor={`works${i}`}>
+                  <ul>
+                    <li>{item.title}</li>
+                    <li>{item.subtitle}</li>
+                    <li className="btn"></li>
+                  </ul>
+                </label>
+                <div className="work_detail">
+                  <ul>
+                    <li></li>
+                    <li>
+                      <p>{item.description}</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div className="work_list_detail">
-          <div className="work_title">
-            <input type="radio" name="accordion" id="works2"></input>
-            <label htmlFor="works2">
-              <ul>
-                <li>WOOLWORTHS</li>
-                <li>RESEARCH - STRATEGY</li>
-                <li className="btn"></li>
-              </ul>
-            </label>
-            <div className="work_detail">
-              <ul>
-                <li></li>
-                <li>
-                  <p>
-                    Working closely with Woolworths within a SPRINT framework,
-                    we undertook extensive primary and secondary user research
-                    as well as user experience testing with the client’s desired
-                    target audience. The result was a tested and validated
-                    savings and budgeting proposition.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="work_list_detail">
-          <div className="work_title">
-            <input type="radio" name="accordion" id="works3"></input>
-            <label htmlFor="works3">
-              <ul>
-                <li>WOOLWORTHS</li>
-                <li>RESEARCH - STRATEGY</li>
-                <li className="btn"></li>
-              </ul>
-            </label>
-            <div className="work_detail">
-              <ul>
-                <li></li>
-                <li>
-                  <p>
-                    Working closely with Woolworths within a SPRINT framework,
-                    we undertook extensive primary and secondary user research
-                    as well as user experience testing with the client’s desired
-                    target audience. The result was a tested and validated
-                    savings and budgeting proposition.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
+      <h1>WITH Artbuddy</h1>
+      <CustomSwiper
+        slidesPerView={'auto'}
+        spaceBetween={40}
+        loop={true}
+        autoHeight={true}
+      >
+        {imgNum.map((o, i) => {
+          return (
+            <SwiperSlide style={{ width: 'auto' }}>
+              <SwiperContent
+                src={`/images/artbuddy/artbuddy_0${i + 1}.png`}
+                alt={`${i}`}
+              ></SwiperContent>
+            </SwiperSlide>
+          );
+        })}
+      </CustomSwiper>
     </Box>
   );
 };
@@ -97,13 +66,14 @@ const Box = styled.div`
   margin-top: 8vw;
   margin-bottom: 4vw;
   width: 96vw;
-  > h1 {
+  h1 {
     margin-bottom: 4vw;
     font-size: 2.78vw;
     line-height: 0.8;
     font-weight: 400;
   }
   .work_list {
+    margin-bottom: 4vw;
     .work_list_detail {
       border-bottom: 1px solid rgb(205, 205, 205);
       .work_title {
@@ -166,5 +136,14 @@ const Box = styled.div`
       }
     }
   }
+`;
+
+const CustomSwiper = styled(Swiper)`
+  > .swiper-slide {
+    width: auto;
+  }
+`;
+const SwiperContent = styled.img`
+  height: 25vw;
 `;
 export default Worked;

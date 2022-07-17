@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { useClientsStore } from '../../store/clients';
 import { ClientType } from '../../types/clientsType';
+import Button from '../common/Button';
 
 const Clients = () => {
   const { clientsList } = useClientsStore((state) => state);
@@ -19,16 +20,11 @@ const Clients = () => {
                 <p>{item.description}</p>
               </div>
 
-              <a href="" rel="noopener noreferrer">
-                <div className="btn-outer">
-                  <div className="btn-mask btn-top">
-                    <div className="btn-text">{item.btntop}</div>
-                  </div>
-                  <div className="btn-mask btn-bottom">
-                    <div className="btn-text">{item.btnbot}</div>
-                  </div>
-                </div>
-              </a>
+              <Button
+                link={`/detail/${item.name}`}
+                btntop={item.btntop}
+                btnbot={item.btnbot}
+              />
             </li>
           );
         })}
@@ -44,7 +40,7 @@ const Box = styled.div`
   width: 96vw;
   > h1 {
     margin-bottom: 4vw;
-    font-size: 4.8vw;
+    font-size: 2.78vw;
     line-height: 0.8;
     font-weight: 400;
   }
@@ -71,68 +67,6 @@ const Box = styled.div`
           line-height: 1.4;
           font-weight: 300;
           color: #2a2a2a;
-        }
-      }
-      > a {
-        > .btn-outer {
-          cursor: pointer;
-          position: relative;
-          .btn-mask {
-            transition: 0.35s;
-            position: absolute;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            .btn-text {
-              font-size: 12px;
-            }
-            height: 10px;
-          }
-          .btn-mask.btn-top {
-            z-index: 999;
-            background-color: #2a2a2a;
-            color: #f0f0f0;
-            border-radius: 999px;
-            overflow: hidden;
-            width: 130px;
-            padding: 5px 0;
-            padding-left: 10px;
-          }
-          .btn-mask.btn-bottom {
-            transition: 0.5s;
-            align-items: flex-start;
-            background-color: #ccc4b9;
-            justify-content: flex-start;
-            padding: 5px 10px;
-            padding-left: 5px;
-            display: flex;
-            border-radius: 999px;
-            overflow: hidden;
-            .btn-text {
-              display: none;
-            }
-          }
-          :hover {
-            transition: 0.5s;
-            .btn-mask.btn-top {
-              width: 13px;
-              padding: 1px 0;
-              overflow: hidden;
-              transform: translate(8px, 40%);
-              .btn-text {
-                visibility: hidden;
-                transform: translateY(-50%);
-              }
-            }
-            .btn-mask.btn-bottom {
-              height: 10px;
-              padding: 5px 30px;
-              padding-left: 25px;
-              .btn-text {
-                display: block;
-              }
-            }
-          }
         }
       }
     }

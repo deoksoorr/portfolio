@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useAboutStore } from '../../store/about';
 
@@ -18,7 +19,7 @@ const Gallery = () => {
           */
           return (
             <li key={i}>
-              <a href="" rel="noopener noreferrer">
+              <Link to={'/'} rel="noopener noreferrer">
                 <div>
                   <div>
                     <img
@@ -37,7 +38,7 @@ const Gallery = () => {
                   </ul>
                   <p>{item.name}</p>
                 </div>
-              </a>
+              </Link>
               <span>{item.num}</span>
             </li>
           );

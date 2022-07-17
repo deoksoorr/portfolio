@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useIntersection, useWindowScroll, useWindowSize } from 'react-use';
+import Button from '../common/Button';
 
 const About = () => {
   const { x, y } = useWindowScroll();
@@ -35,14 +36,7 @@ const About = () => {
               development, we build digital experiences that transform the way
               people connect and interact with brands.
             </span>
-            <div className="btn-outer">
-              <div className="btn-mask btn-bottom">
-                <div className="btn-text">Get to know us</div>
-              </div>
-              <div className="btn-mask btn-top">
-                <div className="btn-text">ABOUT US</div>
-              </div>
-            </div>
+            <Button btntop="Get to know us" btnbot="ABOUT US" />
           </li>
         </ul>
       </Box>
@@ -87,51 +81,10 @@ const Box = styled.div`
         color: #2a2a2a;
         margin-bottom: 2vw;
       }
-      > .btn-outer {
-        cursor: pointer;
-        position: relative;
-        .btn-mask {
-          position: absolute;
-          display: flex;
-          padding: 4px 12px;
-          justify-content: flex-start;
-          align-items: flex-start;
-          .btn-text {
-            font-size: 12px;
-            line-height: 14px;
-          }
-        }
-        .btn-mask.btn-top {
-          transition: 0.5s;
-          border-radius: 0;
-          background-color: #2a2a2a;
-          color: #f0f0f0;
-          clip-path: inset(0px round 999px);
-          .btn-text {
-            transform: translate(0px, 0px);
-          }
-        }
-        .btn-mask.btn-bottom {
-          transition: 0.5s;
-          align-items: flex-start;
-          background-color: #ccc4b9;
-          justify-content: flex-start;
-          padding-left: 24px;
-          display: flex;
-          clip-path: inset(0px 54.2186px 0px 0px round 999px);
-          .btn-text {
-          }
-        }
-        :hover {
+      a {
+        .btn-outer {
           .btn-mask.btn-top {
-            clip-path: inset(6px 66px 6px 6px round 999px);
-            transform: translate(4px, 0);
-            .btn-text {
-              visibility: hidden;
-            }
-          }
-          .btn-mask.btn-bottom {
-            clip-path: inset(0px round 999px);
+            width: 100px;
           }
         }
       }
