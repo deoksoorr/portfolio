@@ -30,7 +30,7 @@ const Footer = () => {
         </li>
       </Contact>
       <Nav>
-        <h1>DSR-STDUIO®</h1>
+        <h1>A2O-LAB</h1>
         <ul>
           <li>
             <button type="button">

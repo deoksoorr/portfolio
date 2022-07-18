@@ -131,7 +131,7 @@ const Box = styled.div`
           }
         }
         input[id*='works']:checked + label + .work_detail {
-          max-height: 50px;
+          max-height: 80px;
         }
       }
     }

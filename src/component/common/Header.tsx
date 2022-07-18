@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = () => {
   return (
     <Nav>
-      <h1>DSR-STDUIO®</h1>
+      <Link to={'/'} rel="noopener noreferrer">
+        <h1>A2O-LAB</h1>
+      </Link>
       <ul>
         <li>
           <button type="button">

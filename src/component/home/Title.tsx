@@ -1,45 +1,45 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const Title = () => {
   return (
     <Box>
       <div className="lineMask">
         <div>
-          <span>A</span>
+          <span className="transition01">A</span>
         </div>
         &nbsp;
         <div>
-          <span>DIGITAL</span>
+          <span className="transition02">DIGITAL</span>
         </div>
         &nbsp;
         <div>
-          <span>DESIGN</span>
+          <span className="transition03">DESIGN</span>
         </div>
         &nbsp;
         <div>
-          <span>STUDIO</span>
+          <span className="transition04">STUDIO</span>
         </div>
       </div>
       <div className="lineMask">
         <div>
-          <span>DRIVEN</span>
+          <span className="transition05">DRIVEN</span>
         </div>
         &nbsp;
         <div>
-          <span>BY</span>
+          <span className="transition06">BY</span>
         </div>
         &nbsp;
         <div>
-          <span>RESEARCH</span>
+          <span className="transition07">RESEARCH</span>
         </div>
         &nbsp;
         <div>
-          <span>&</span>
+          <span className="transition08">&</span>
         </div>
       </div>
       <div className="lineMask">
         <div>
-          <span>STRATEGY</span>
+          <span className="transition09">STRATEGY</span>
         </div>
       </div>
       <div className="subMask">
@@ -50,6 +50,15 @@ const Title = () => {
     </Box>
   );
 };
+
+const moveUp = keyframes`
+  from{
+    top: 85px;
+  }
+  to{
+    top:0px;
+  }
+`;
 
 const Box = styled.div`
   margin: 0 auto;
@@ -64,6 +73,42 @@ const Box = styled.div`
     line-height: 5.2vw;
     > div {
       display: inline-block;
+      position: relative;
+      overflow: hidden;
+      span {
+        position: relative;
+        animation-duration: 0.25s;
+        animation-timing-function: ease-in-out;
+        animation-name: ${moveUp};
+        animation-fill-mode: forwards;
+      }
+      .transition01 {
+        transition-delay: 0.7s;
+      }
+      .transition02 {
+        transition-delay: 1s;
+      }
+      .transition03 {
+        transition-delay: 0.9s;
+      }
+      .transition04 {
+        transition-delay: 1s;
+      }
+      .transition05 {
+        transition-delay: 1.1s;
+      }
+      .transition06 {
+        transition-delay: 1.2s;
+      }
+      .transition07 {
+        transition-delay: 1.3s;
+      }
+      .transition08 {
+        transition-delay: 1.4s;
+      }
+      .transition09 {
+        transition-delay: 1.5s;
+      }
     }
   }
   > .subMask {
