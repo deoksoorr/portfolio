@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const Header = () => {
   return (
@@ -8,11 +8,11 @@ const Header = () => {
         <h1>A2O-LAB</h1>
       </Link>
       <ul>
-        <li>
+        {/* <li>
           <button type="button">
             <span>CASE STUDIES</span>
           </button>
-        </li>
+        </li> */}
         <li>
           <button type="button">
             <span>WORK</span>
@@ -33,6 +33,16 @@ const Header = () => {
   );
 };
 
+const moveUp = keyframes`
+  from{
+    top: 85px;
+  }
+  to{
+    opacity: 1;
+    top:0px;
+  }
+`;
+
 const Nav = styled.header`
   z-index: 999;
   margin: 0 auto;
@@ -49,9 +59,16 @@ const Nav = styled.header`
   transform: translateX(-50%);
   h1 {
     font-weight: 300;
+    position: relative;
+    opacity: 0;
+    transform: translateY(0px);
+    animation: ${moveUp} 1.3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    animation-delay: 2s;
+    font-weight: 300;
   }
   > ul {
-    width: 22.5vw;
+    //width: 22.5vw;
+    width: 15vw;
     display: flex;
     justify-content: inherit;
     > li {
@@ -60,6 +77,11 @@ const Nav = styled.header`
         font-size: 13px;
         position: relative;
         span {
+          position: relative;
+          opacity: 0;
+          transform: translateY(35px);
+          animation: ${moveUp} 1.3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+          animation-delay: 2s;
           font-weight: 300;
           &::after {
             content: '';

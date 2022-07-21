@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useAboutStore } from '../../store/about';
 
 const Gallery = () => {
@@ -48,6 +48,14 @@ const Gallery = () => {
   );
 };
 
+const fadeUp = keyframes`
+  from{
+  }
+  to{
+    opacity: 1;
+  }
+`;
+
 const Box = styled.div`
   margin: 0 auto;
   width: 96vw;
@@ -77,6 +85,9 @@ const Box = styled.div`
               width: 100%;
               height: 100%;
               object-fit: cover;
+              opacity: 0;
+              animation: ${fadeUp} 2s forwards;
+              animation-delay: 1.5s;
             }
           }
           > ul {

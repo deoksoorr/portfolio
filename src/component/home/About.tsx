@@ -23,18 +23,18 @@ const About = () => {
         <h1>ABOUT</h1>
         <ul>
           <li>
-            <p>AN INTERNATIONAL DIGITAL DESIGN STUDIO</p>
-            <p>REIMAGINING HOW PEOPLE CONNECT WITH BRANDS.</p>
+            <p>A20는 아티스트가</p>
+            <p>성장하는 모든 순간과 함께합니다.</p>
           </li>
           <li>
             <span>
-              We're a small team of curious humans who create work we’re proud
-              of for people and brands we believe in. With collaboration at the
-              heart of every project, we identify what skills are required and
-              then bring the best people together to create something truly
-              extraordinary. Combining strategy, branding, web design and
-              development, we build digital experiences that transform the way
-              people connect and interact with brands.
+              고객의 니즈(Needs)에 맞춰 최적화 된 솔루션을 제공하며, 치밀한
+              분석을 통한 컨텐츠 기반의 결과물을 제공합니다.
+              <br />
+              'A20'는 시장의 변화와 트랜드를 끊임없이 분석하고 연구하며,
+              <br />
+              변화에 대응한 새로운 경험을 고객에게 전달하는 회사로 도약해 나아갈
+              것입니다.
             </span>
             <Button link="" btntop="Get to know us" btnbot="ABOUT US" />
           </li>
@@ -71,6 +71,7 @@ const Box = styled.div`
       width: 50%;
       position: relative;
       > p {
+        font-family: 'Noto Sans KR', sans-serif;
         font-size: 1.1vw;
         line-height: 1.2;
       }

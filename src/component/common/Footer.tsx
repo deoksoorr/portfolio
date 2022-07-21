@@ -18,12 +18,13 @@ const Footer = () => {
             <li>
               <h4>BUSINESS INQUIRES</h4>
               <p>DAVE@A2O-LAB.IO</p>
-              <p>+32 10 3332 8616</p>
+              <p>Tel 02 544 0225</p>
+              <p>Fax 02 544 0226</p>
             </li>
             <li>
               <h4>LOCATION</h4>
-              <p>2, Jeongja-ro, Bundang-g</p>
-              <p>Seongnam-si, Gyeonggi-do</p>
+              <p>81, Sapyeong-daero 55-gil</p>
+              <p>Seocho-gu, Seoul</p>
               <p>Republic of Korea</p>
             </li>
           </ul>

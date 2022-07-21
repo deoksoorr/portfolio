@@ -5,46 +5,37 @@ const Title = () => {
     <Box>
       <div className="lineMask">
         <div>
-          <span className="transition01">A</span>
+          <span className="transition01">BUILD</span>
         </div>
         &nbsp;
         <div>
-          <span className="transition02">DIGITAL</span>
+          <span className="transition02">THE</span>
         </div>
         &nbsp;
         <div>
-          <span className="transition03">DESIGN</span>
+          <span className="transition03">FUTURE</span>
         </div>
         &nbsp;
         <div>
-          <span className="transition04">STUDIO</span>
+          <span className="transition04">BY</span>
         </div>
       </div>
       <div className="lineMask">
         <div>
-          <span className="transition05">DRIVEN</span>
+          <span className="transition05">LAUNCHING</span>
         </div>
         &nbsp;
         <div>
-          <span className="transition06">BY</span>
+          <span className="transition06">ON</span>
         </div>
         &nbsp;
         <div>
-          <span className="transition07">RESEARCH</span>
-        </div>
-        &nbsp;
-        <div>
-          <span className="transition08">&</span>
-        </div>
-      </div>
-      <div className="lineMask">
-        <div>
-          <span className="transition09">STRATEGY</span>
+          <span className="transition07">NFT</span>
         </div>
       </div>
       <div className="subMask">
         <span className="sub">
-          &nbsp;&nbsp;BASED IN LONDON + CAPE TOWN WORKING WORLDWIDE
+          &nbsp;&nbsp;All-in-one marketing platform specializing in NFT.
         </span>
       </div>
     </Box>
@@ -56,6 +47,7 @@ const moveUp = keyframes`
     top: 85px;
   }
   to{
+    opacity: 1;
     top:0px;
   }
 `;
@@ -77,45 +69,43 @@ const Box = styled.div`
       overflow: hidden;
       span {
         position: relative;
-        animation-duration: 0.25s;
-        animation-timing-function: ease-in-out;
-        animation-name: ${moveUp};
-        animation-fill-mode: forwards;
-      }
-      .transition01 {
-        transition-delay: 0.7s;
+        opacity: 0;
+        transform: translateY(85px);
+        animation: ${moveUp} 1.3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        font-weight: 100;
       }
       .transition02 {
-        transition-delay: 1s;
+        animation-delay: 0.05s;
       }
       .transition03 {
-        transition-delay: 0.9s;
+        animation-delay: 0.2s;
+        color: #ff4f42;
       }
       .transition04 {
-        transition-delay: 1s;
+        animation-delay: 0.3s;
       }
       .transition05 {
-        transition-delay: 1.1s;
+        animation-delay: 0.4s;
       }
       .transition06 {
-        transition-delay: 1.2s;
+        animation-delay: 0.5s;
       }
       .transition07 {
-        transition-delay: 1.3s;
-      }
-      .transition08 {
-        transition-delay: 1.4s;
-      }
-      .transition09 {
-        transition-delay: 1.5s;
+        animation-delay: 0.6s;
+        color: #ff4f42;
       }
     }
   }
   > .subMask {
     line-height: 0;
     .sub {
-      font-size: 13px;
+      font-size: 17px;
       line-height: 13px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(35px);
+      animation: ${moveUp} 1.3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+      animation-delay: 1s;
     }
   }
 `;

@@ -145,5 +145,6 @@ const CustomSwiper = styled(Swiper)`
 `;
 const SwiperContent = styled.img`
   height: 25vw;
+  cursor: pointer;
 `;
 export default Worked;
