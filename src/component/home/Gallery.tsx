@@ -19,11 +19,11 @@ const Gallery = () => {
           */
           return (
             <li key={i}>
-              <Link to={'/'} rel="noopener noreferrer">
+              <div>
                 <div>
                   <div>
                     <img
-                      src={`/images/home/${item.id}.jpeg`}
+                      src={`/images/home/${item.id}.png`}
                       alt={`$(item.name}`}
                     />
                   </div>
@@ -33,12 +33,12 @@ const Gallery = () => {
                       <span>{item.stack}</span>
                     </li>
                     <li>
-                      <span>{item.year}</span>
+                      <span>{item.position}</span>
                     </li>
                   </ul>
                   <p>{item.name}</p>
                 </div>
-              </Link>
+              </div>
               <span>{item.num}</span>
             </li>
           );
@@ -65,7 +65,7 @@ const Box = styled.div`
     > li {
       width: 22.5vw;
       position: relative;
-      > a {
+      > div {
         transition-delay: 1s;
         > div {
           > span {
@@ -110,7 +110,7 @@ const Box = styled.div`
       }
 
       :hover {
-        > a {
+        > div {
           > div {
             > div {
               border-radius: 50%;

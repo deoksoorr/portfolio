@@ -3,8 +3,8 @@ interface UseAboutStoreType {
   aboutList: {
     id: string;
     num: string;
-    stack: string[];
-    year: number;
+    stack: string;
+    position: string;
     name: string;
   }[];
   detail: {}[];
@@ -15,30 +15,30 @@ const useAboutStore = create<UseAboutStoreType>((set) => ({
     {
       id: '01',
       num: '00-1',
-      stack: ['React', ' / ', 'Typescript'],
-      year: 2022,
-      name: 'LEMKUS',
+      stack: 'Artist',
+      position: 'Illustrator',
+      name: 'Nessi',
     },
     {
       id: '02',
       num: '00-2',
-      stack: ['Vue', ' / ', 'Sass'],
-      year: 2022,
-      name: 'SOPHIE DALLAMORE',
+      stack: 'Artist',
+      position: 'Illustrator',
+      name: 'Kim In',
     },
     {
       id: '03',
       num: '00-3',
-      stack: ['Java', ' / ', 'Spring boot'],
-      year: 2022,
-      name: 'VANA',
+      stack: 'Artist',
+      position: 'Illustrator',
+      name: 'Kim Seungsoo',
     },
     {
       id: '04',
       num: '00-4',
-      stack: ['Design'],
-      year: 2021,
-      name: 'TIGRE WHEEL',
+      stack: 'Artist',
+      position: 'Illustrator',
+      name: 'Kim Ayeong',
     },
   ],
   detail: [],

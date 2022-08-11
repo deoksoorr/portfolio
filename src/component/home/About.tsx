@@ -36,18 +36,18 @@ const About = () => {
               변화에 대응한 새로운 경험을 고객에게 전달하는 회사로 도약해 나아갈
               것입니다.
             </span>
-            <Button link="" btntop="Get to know us" btnbot="ABOUT US" />
+            <Button link={'/about'} btntop="Get to know us" btnbot="ABOUT US" />
           </li>
         </ul>
       </Box>
-      <VideoBox ref={videoRef} style={{ width: `${width}vw` }}>
+      {/* <VideoBox ref={videoRef} style={{ width: `${width}vw` }}>
         <video autoPlay loop muted>
           <source
             src={`videos/20d42b34-60b4-4fdf-a1b3-0cf53a3ba4f1.mp4`}
             type="video/mp4"
           ></source>
         </video>
-      </VideoBox>
+      </VideoBox> */}
     </>
   );
 };
@@ -78,7 +78,7 @@ const Box = styled.div`
       > span {
         display: block;
         font-size: 0.8vw;
-        line-height: 1.4;
+        line-height: 1.2vw;
         color: #2a2a2a;
         margin-bottom: 2vw;
       }

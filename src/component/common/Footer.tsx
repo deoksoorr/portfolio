@@ -1,7 +1,33 @@
-import styled from 'styled-components';
-import Button from './Button';
+import { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 const Footer = () => {
+  const rootLocation = window.location.href;
+
+  const [modal2, setModal2] = useState(false);
+  const [effect, setEffect] = useState('mount');
+  const onClickBtn2 = () => {
+    if (modal2 === false) {
+      setEffect('mount');
+      setTimeout(() => {
+        setModal2(true);
+      }, 400);
+    } else {
+      setEffect('unmount');
+      setTimeout(() => {
+        setModal2(false);
+      }, 400);
+    }
+  };
+
+  const handleTop = () => {
+    // 클릭하면 스크롤이 위로 올라가는 함수
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <>
       <Contact>
@@ -10,9 +36,8 @@ const Footer = () => {
             <h3>WE WOULD LOVE TO HEAR FROM YOU.</h3>
             <h3>LET’S WORK — TOGETHER</h3>
           </div>
-
-          <Button link="/contact" btntop="CONTACT US" btnbot="GET IN TOUCH" />
         </li>
+
         <li>
           <ul>
             <li>
@@ -44,15 +69,86 @@ const Footer = () => {
             </button>
           </li>
           <li>
-            <button type="button">
+            <button type="button" onClick={handleTop}>
               <span>BACK TO TOP</span>
             </button>
           </li>
         </ul>
+        {/* {modal2 == true ? (
+          <Popup>
+            <div className={`box-wrap ${effect}`}>
+              <ul>
+                <button onClick={onClickBtn2}>CLOSE</button>
+                <li>
+                  <h1>CONTACT</h1>
+                </li>
+                <li>
+                  <ul>
+                    <ul>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <li></li>
+                    <li></li>
+                    <li>
+                      <button>SUBMIT</button>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </Popup>
+        ) : null} */}
       </Nav>
     </>
   );
 };
+
+const moveUp2 = keyframes`
+  from{
+    opacity: 0;
+    top: 100vh;
+  }
+  to{
+    opacity: 1;
+    top:10vh;
+  }
+`;
+const moveUp3 = keyframes`
+  from{
+    opacity: 1;
+    top: 10vh;
+  }
+  to{
+    opacity: 0;
+    top:100vh;
+  }
+`;
+
+const Popup = styled.div`
+  transition: all 0.5s;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  > div {
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+    top: 10vh;
+    background: #f0f0f0;
+    border-radius: 20px 20px 0px 0px;
+  }
+  .mount {
+    animation: 0.6s ease-in-out ${moveUp2} forwards;
+  }
+  .unmount {
+    animation: 0.5s ease-in-out ${moveUp3} forwards;
+  }
+`;
+
 const Contact = styled.ul`
   margin: 0 auto;
   width: 96vw;
@@ -95,9 +191,10 @@ const Contact = styled.ul`
 `;
 
 const Nav = styled.footer`
+  position: relative;
   border-top: 1px solid #999;
   margin: 0 auto;
-  font-size: 11px;
+  font-size: 0.65vw;
   width: 96vw;
   padding: 25px 0;
   box-sizing: border-box;
@@ -114,7 +211,7 @@ const Nav = styled.footer`
     > li {
       > button {
         font-family: 'Saira', sans-serif;
-        font-size: 11px;
+        font-size: 0.65vw;
         position: relative;
         span {
           font-weight: 300;
