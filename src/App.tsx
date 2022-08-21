@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import GlobalStyles from './style/global';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';

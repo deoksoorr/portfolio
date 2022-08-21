@@ -6,9 +6,8 @@ import { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 const Layout = () => {
   const location = useLocation();
-  console.log(window.location.href);
   const [nowLocation, setnowLocation] = useState('none');
-  if (window.location.href === 'http://dsrstudio.com/') {
+  if (window.location.href === 'https://a2o-lab.io/') {
     return (
       <>
         <Box>

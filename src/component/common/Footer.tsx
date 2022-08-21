@@ -42,7 +42,7 @@ const Footer = () => {
           <ul>
             <li>
               <h4>BUSINESS INQUIRES</h4>
-              <p>DAVE@A2O-LAB.IO</p>
+              <p>ALEX@A2O-LAB.IO</p>
               <p>Tel 02 544 0225</p>
               <p>Fax 02 544 0226</p>
             </li>

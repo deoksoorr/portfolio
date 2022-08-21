@@ -11,20 +11,69 @@ interface buttonStyle {
 const Button = ({ link, btntop, btnbot }: buttonStyle) => {
   return (
     <StyleButton to={link} rel="noopener noreferrer">
-      <div className="btn-outer">
+      {/* <div className="btn-outer">
         <div className="btn-mask btn-top">
           <div className="btn-text">{btntop}</div>
         </div>
         <div className="btn-mask btn-bottom">
           <div className="btn-text">{btnbot}</div>
         </div>
+      </div> */}
+
+      <div className="btn-text btntop">
+        <span>{btntop}</span>
+      </div>
+      <div className="btn-text btnbot">
+        <span>{btnbot}</span>
       </div>
     </StyleButton>
   );
 };
 
 const StyleButton = styled(Link)`
-  .btn-outer {
+  font-weight: 400;
+  cursor: pointer;
+  position: relative;
+  .btn-text {
+    transition: 0.2s;
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .btntop {
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    padding: 7px 0 6px 10px;
+    border-radius: 999px;
+    width: 110px; //사이즈가변
+  }
+  .btnbot {
+    position: absolute;
+    z-index: 5;
+    background-color: #ccc4b9;
+    justify-content: flex-start;
+    padding: 7px 0 6px 10px;
+    border-radius: 999px;
+    width: 110px; //위에랑 맞출것
+  }
+  :hover {
+    .btntop {
+      width: 4px;
+      height: 1px;
+      overflow: hidden;
+      transform: translate(8px, 6px);
+      span {
+        visibility: hidden;
+      }
+    }
+    .btnbot {
+      padding-left: 28px;
+      width: 90px;
+    }
+  }
+  /* .btn-outer {
     cursor: pointer;
     position: relative;
     .btn-mask {
@@ -83,7 +132,7 @@ const StyleButton = styled(Link)`
         }
       }
     }
-  }
+  } */
 `;
 
 export default Button;

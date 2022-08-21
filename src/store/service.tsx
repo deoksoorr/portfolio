@@ -14,15 +14,17 @@ const useClientsStore = create<useClientsStoreType>(() => ({
       name: 'Management',
       description:
         '고객의 니즈(Needs)에 맞춰 최적화 된 솔루션을 제공하며, 치밀한 분석을 통한 컨텐츠 기반의 결과물을 제공합니다. `A2O`는 시장의 변화와 트랜드를 끊임없이 분석하고 연구하며, 변화에 대응한 새로운 경험을 고객에게 전달하는 회사로  도약해 나아갈 것입니다.',
-      btntop: 'GET DOCUMENT',
+      filename: 'a2o_Marketing',
+      btntop: 'GET DOCUMENT +',
       btnbot: 'DOWNLOAD',
     },
     {
       id: '02',
-      name: 'Management',
+      name: 'Marketing',
       description:
         '고객의 니즈(Needs)에 맞춰 최적화 된 솔루션을 제공하며, 치밀한 분석을 통한 컨텐츠 기반의 결과물을 제공합니다. `A2O`는 시장의 변화와 트랜드를 끊임없이 분석하고 연구하며, 변화에 대응한 새로운 경험을 고객에게 전달하는 회사로  도약해 나아갈 것입니다.',
-      btntop: 'GET DOCUMENT',
+      filename: 'a2o_Marketing',
+      btntop: 'GET DOCUMENT +',
       btnbot: 'DOWNLOAD',
     },
   ],

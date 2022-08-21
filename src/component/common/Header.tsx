@@ -1,6 +1,16 @@
-import { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
+import emailjs from '@emailjs/browser';
+
+type EmailType = {
+  onSubmit: (form: {
+    name: string | HTMLFormElement;
+    number: string | HTMLFormElement;
+    mail: string | HTMLFormElement;
+    message: string | HTMLFormElement;
+  }) => void;
+};
 
 const Header = () => {
   const [modal, setModal] = useState(false);
@@ -16,6 +26,65 @@ const Header = () => {
       }, 400);
     }
   };
+
+  const formRef = useRef(null);
+
+  const [form, setForm] = useState({
+    name: '',
+    number: '',
+    mail: '',
+    message: '',
+  });
+
+  const onChangeAccount = (e: any) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+    if (form.name.length < 2) {
+      alert('이름을 다시 입력해주세요');
+      return false;
+    } else if (form.mail.length < 5) {
+      alert('이메일을 다시 입력해주세요');
+      return false;
+    } else if (form.number.length < 5) {
+      alert('번호를 다시 입력해주세요');
+      return false;
+    } else if (form.message.length < 2) {
+      alert('메세지를 다시 입력해주세요');
+      return false;
+    } else {
+      var templateParams = {
+        name: form.name,
+        mail: form.mail,
+        number: form.number,
+        message: form.message,
+      };
+      emailjs
+        .send(
+          'service_mcnwin4',
+          'template_y7ccym4',
+          templateParams,
+          'TwFEizLqDsbyfaS9X',
+        )
+        .then(
+          (result) => {
+            alert('전송에 성공하였습니다.');
+            setTimeout(() => {
+              setModal(false);
+            }, 400);
+          },
+          (error) => {
+            alert('전송에 실패하였습니다.');
+          },
+        );
+    }
+  };
+
   return (
     <>
       <Nav>
@@ -58,54 +127,63 @@ const Header = () => {
                 <h1>CONTACT</h1>
               </li>
               <li>
-                <ul>
-                  <li>
-                    <ul>
-                      <li>
-                        <div>
-                          <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            aria-invalid="true"
-                          ></input>
-                          <label htmlFor="name">NAME *</label>
-                        </div>
-                      </li>
-                      <li>
-                        <div>
-                          <input
-                            type="email"
-                            name="name"
-                            id="name"
-                            aria-invalid="true"
-                          ></input>
-                          <label htmlFor="name">EMAIL *</label>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div>
-                      <input
-                        type="number"
-                        name="number"
-                        id="number"
-                        aria-invalid="true"
-                      ></input>
-                      <label htmlFor="number">PHONE NUMBER *</label>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <label htmlFor="message">MESSAGE *</label>
-                      <textarea name="message"></textarea>
-                    </div>
-                  </li>
-                  <li>
-                    <button type="button">SUBMIT</button>
-                  </li>
-                </ul>
+                <form ref={formRef} onSubmit={sendEmail}>
+                  <ul>
+                    <li>
+                      <ul>
+                        <li>
+                          <div>
+                            <input
+                              type="text"
+                              name="name"
+                              id="name"
+                              aria-invalid="true"
+                              onChange={onChangeAccount}
+                            ></input>
+                            <label htmlFor="name">NAME *</label>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <input
+                              type="email"
+                              name="mail"
+                              id="mail"
+                              aria-invalid="true"
+                              onChange={onChangeAccount}
+                            ></input>
+                            <label htmlFor="name">EMAIL *</label>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div>
+                        <input
+                          type="number"
+                          name="number"
+                          id="number"
+                          aria-invalid="true"
+                          onChange={onChangeAccount}
+                        ></input>
+                        <label htmlFor="number">PHONE NUMBER *</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <label htmlFor="message">MESSAGE *</label>
+                        <textarea
+                          name="message"
+                          id="message"
+                          onChange={onChangeAccount}
+                        ></textarea>
+                      </div>
+                    </li>
+                    <li>
+                      <button type="submit">SUBMIT</button>
+                    </li>
+                  </ul>
+                </form>
               </li>
             </ul>
             <Contact>
@@ -122,7 +200,7 @@ const Header = () => {
                 <ul>
                   <li>
                     <h4>BUSINESS INQUIRES</h4>
-                    <p>DAVE@A2O-LAB.IO</p>
+                    <p>ALEX@A2O-LAB.IO</p>
                     <p>Tel 02 544 0225</p>
                     <p>Fax 02 544 0226</p>
                   </li>
@@ -266,85 +344,87 @@ const Popup = styled.div`
           line-height: 0.8;
           font-weight: 400;
         }
-        > ul {
-          > li {
-            > ul {
-              display: flex;
-              > li {
-                width: 48%;
-                > div {
-                  position: relative;
-                  > input {
-                    width: 100%;
-                    padding-top: 20px;
-                    padding-bottom: 12px;
-                    border-style: solid;
-                    border-width: 0 0 1px;
-                    border-bottom: 1px solid #ddd;
-                    z-index: 99;
-                    :focus {
-                      outline: 0;
-                      border-color: #000;
+        > form {
+          > ul {
+            > li {
+              > ul {
+                display: flex;
+                > li {
+                  width: 48%;
+                  > div {
+                    position: relative;
+                    > input {
+                      width: 100%;
+                      padding-top: 20px;
+                      padding-bottom: 12px;
+                      border-style: solid;
+                      border-width: 0 0 1px;
+                      border-bottom: 1px solid #ddd;
+                      z-index: 99;
+                      :focus {
+                        outline: 0;
+                        border-color: #000;
+                      }
+                    }
+                    > label {
+                      position: absolute;
+                      top: 0px;
+                      color: #9d9d9d;
+                      font-size: 0.5vw;
                     }
                   }
-                  > label {
-                    position: absolute;
-                    top: 0px;
-                    color: #9d9d9d;
-                    font-size: 0.5vw;
+                }
+                > li:first-child {
+                  margin-right: 4%;
+                }
+              }
+              > div {
+                margin-top: 20px;
+                position: relative;
+                > label {
+                  position: absolute;
+                  top: 0px;
+                  color: #9d9d9d;
+                  font-size: 0.5vw;
+                }
+                > input {
+                  width: 100%;
+                  padding-top: 20px;
+                  padding-bottom: 12px;
+                  border-style: solid;
+                  border-width: 0 0 1px;
+                  border-color: #000 #000 #ddd;
+                  :focus {
+                    outline: 0;
+                    border-color: #000;
+                  }
+                }
+                > textarea {
+                  width: 100%;
+                  height: 100px;
+                  font-family: 'Saira';
+                  padding-top: 50px;
+                  border-style: solid;
+                  border-width: 0 0 1px;
+                  border-color: #000 #000 #ddd;
+                  :focus {
+                    outline: 0;
+                    border-color: #000;
                   }
                 }
               }
-              > li:first-child {
-                margin-right: 4%;
-              }
-            }
-            > div {
-              margin-top: 20px;
-              position: relative;
-              > label {
-                position: absolute;
-                top: 0px;
-                color: #9d9d9d;
-                font-size: 0.5vw;
-              }
-              > input {
-                width: 100%;
-                padding-top: 20px;
-                padding-bottom: 12px;
-                border-style: solid;
-                border-width: 0 0 1px;
-                border-color: #000 #000 #ddd;
-                :focus {
-                  outline: 0;
-                  border-color: #000;
-                }
-              }
-              > textarea {
-                width: 100%;
-                height: 100px;
-                font-family: 'Saira';
-                padding-top: 50px;
-                border-style: solid;
-                border-width: 0 0 1px;
-                border-color: #000 #000 #ddd;
-                :focus {
-                  outline: 0;
-                  border-color: #000;
-                }
-              }
-            }
 
-            > button {
-              margin-top: 30px;
-              background: #2a2a2a;
-              color: white;
-              border-radius: 999px;
-              width: 100px;
-              height: 1.5vw;
-              font-size: 0.7vw;
-              font-weight: 500;
-              font-family: 'Saria';
+              > button {
+                margin-top: 30px;
+                background: #2a2a2a;
+                color: white;
+                border-radius: 999px;
+                width: 100px;
+                height: 1.5vw;
+                font-size: 0.7vw;
+                font-weight: 500;
+                font-family: 'Saria';
+              }
             }
           }
         }

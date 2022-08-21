@@ -17,7 +17,7 @@ const useoldArtistStore = create<useoldArtistStoreType>((set) => ({
       name: 'Kim Geunyeong',
       position: 'Oil Painting',
       description: 'none',
-      photo: ['1', '2', '3', '4', '5'],
+      photo: ['1', '2', '3', '4'],
     },
     {
       id: 'kimdaeho',
@@ -45,7 +45,7 @@ const useoldArtistStore = create<useoldArtistStoreType>((set) => ({
       name: 'Jee A',
       position: 'Acrylic',
       description: 'none',
-      photo: ['1', '2', '3', '4', '5'],
+      photo: ['1', '2', '3', '4'],
     },
     {
       id: 'honggyeongpyo',
@@ -59,21 +59,21 @@ const useoldArtistStore = create<useoldArtistStoreType>((set) => ({
       name: 'Kim Byeongjin',
       position: 'Ink',
       description: 'none',
-      photo: ['1', '2', '3', '4', '5'],
+      photo: ['1', '2', '3', '4'],
     },
     {
       id: 'kimyunhui',
       name: 'Kim Yunhui',
       position: 'Mixture',
       description: 'none',
-      photo: ['1', '2', '3', '4', '5'],
+      photo: ['1', '2', '3', '4'],
     },
     {
       id: 'kimilju',
       name: 'Kim Ilju',
       position: 'Acrylic',
       description: 'none',
-      photo: ['1', '2', '3', '4', '5'],
+      photo: ['1', '2', '3', '4'],
     },
     {
       id: 'kimjiyeong',
@@ -101,7 +101,7 @@ const useoldArtistStore = create<useoldArtistStoreType>((set) => ({
       name: 'Lee Eunju',
       position: 'Oil Painting',
       description: 'none',
-      photo: ['1', '2', '3', '4', '5'],
+      photo: ['1', '2', '3', '4'],
     },
     {
       id: 'hongjeonghwa',

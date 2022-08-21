@@ -36,7 +36,11 @@ const About = () => {
               변화에 대응한 새로운 경험을 고객에게 전달하는 회사로 도약해 나아갈
               것입니다.
             </span>
-            <Button link={'/about'} btntop="Get to know us" btnbot="ABOUT US" />
+            <Button
+              link={'/about'}
+              btntop="GET TO KNOW US +"
+              btnbot="ABOUT US"
+            />
           </li>
         </ul>
       </Box>
@@ -84,8 +88,25 @@ const Box = styled.div`
       }
       a {
         .btn-outer {
-          .btn-mask.btn-top {
-            width: 100px;
+          .btntop {
+            width: 115px;
+          }
+        }
+      }
+      a {
+        .btntop {
+          width: 125px;
+        }
+        .btnbot {
+          width: 125px;
+        }
+        :hover {
+          .btntop {
+            width: 4px;
+            height: 1px;
+          }
+          .btnbot {
+            width: 95px;
           }
         }
       }

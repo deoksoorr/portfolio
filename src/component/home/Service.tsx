@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useClientsStore } from '../../store/service';
 import { ClientType } from '../../types/clientsType';
-import Button from '../common/Button';
+import DownloadButton from '../common/DownloadButton';
 
 const Clients = () => {
   const { clientsList } = useClientsStore((state) => state);
@@ -18,8 +18,8 @@ const Clients = () => {
                 <p>{item.description}</p>
               </div>
 
-              <Button
-                link={`/detail/${item.name}`}
+              <DownloadButton
+                link={`/images/home/${item.filename}.pdf`}
                 btntop={item.btntop}
                 btnbot={item.btnbot}
               />
@@ -63,15 +63,20 @@ const Box = styled.div`
         }
         margin-bottom: 2vw;
       }
-      .btn-outer {
-        .btn-mask.btn-top {
-          width: 105px;
+      a {
+        .btntop {
+          width: 120px;
         }
-
+        .btnbot {
+          width: 120px;
+        }
         :hover {
-          .btn-mask.btn-bottom {
-            padding: 7px 15px;
-            padding-left: 25px;
+          .btntop {
+            width: 4px;
+            height: 1px;
+          }
+          .btnbot {
+            width: 95px;
           }
         }
       }

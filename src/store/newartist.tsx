@@ -379,7 +379,7 @@ const usenewArtistStore = create<usenewArtistStoreType>((set) => ({
     {
       id: 'limjuyeong',
       name: 'Lim Juyeong',
-      position: '',
+      position: 'Acrylic',
       description: 'none',
       photo: ['1', '2', '3', '4', '5'],
     },

@@ -26,7 +26,13 @@ const Worked = () => {
                   <ul>
                     <li></li>
                     <li>
-                      <p>{team.description}</p>
+                      <img
+                        src={`/images/team/0${i + 1}.png`}
+                        alt={team.korName}
+                      />
+                      <p>{team.position}</p>
+                      <em>{team.engName}</em>
+                      <span>{team.korName}</span>
                     </li>
                   </ul>
                 </div>
@@ -91,10 +97,22 @@ const Box = styled.div`
             justify-content: space-between;
             > li {
               width: 50%;
+              > img {
+                width: 20vw;
+              }
               > p {
+                margin: 20px 0 10px 0;
                 width: 80%;
                 font-size: 0.7vw;
                 line-height: 1.2;
+                color: #757575;
+              }
+              > em {
+                font-weight: 500;
+                font-size: 1.5vw;
+                margin-right: 5px;
+              }
+              > span {
                 color: #757575;
               }
             }
@@ -109,8 +127,8 @@ const Box = styled.div`
           }
         }
         input[id*='works']:checked + label + .work_detail {
-          max-height: 80px;
-          margin-bottom: 1.4vw;
+          max-height: 500px;
+          margin-bottom: 0;
         }
       }
     }
